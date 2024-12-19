@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1st Anniversary Celebration</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffc0cb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .splash-screen .content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .splash-screen h1 {
+            font-size: 3rem;
+            color: #ffc0cb;
+            margin-bottom: 20px;
+        }
+
+        .splash-screen button {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: #ffc0cb;
+            background-color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .splash-screen button:hover {
+            background-color: #fb8296;
+        }
+
+        #main-content {
+            display: none;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+            text-align: center;
+            padding: 30px;
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin: 10px 0 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profiles {
+            display: flex;
+            justify-content:center;
+            margin-bottom: 40px;
+        }
+
+        .profile {
+            text-align: center;
+        }
+
+        .profile img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #ffc0cb;
+        }
+
+        .profile h3 {
+            font-size: 1.5rem;
+            color: #d36775;
+        }
+
+        .profile p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .message {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .message h2 {
+            font-size: 2rem;
+            color: #d2698b;
+            margin-bottom: 15px;
+        }
+
+        .message p {
+            font-size: 14px;
+            text-align: left;
+            line-height: 1.8;
+            background-color: #fff0f5;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .polaroid {
+            background: white;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .polaroid img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .polaroid:hover {
+            transform: scale(1.05);
+        }
+
+        .polaroid p {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #ffc0cb;
+            color: white;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ffc0cb;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .music-control:hover {
+            background-color: #f8d7da;
+        }
+    </style>
+</head>
+<body>
+    <div class="splash-screen" id="splash-screen">
+        <div class="content">
+            <h1>Welcome to Our Love Story</h1>
+            <p>Click the button for Open the Letter</p>
+            <button onclick="startExperience()">Open Letter</button>
+        </div>
+    </div>
+
+    <audio id="background-music" loop>
+        <source src="AAY.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div id="main-content">
+        <header>
+            <h1>Happy 1st Anniversary!</h1>
+            <p>Celebrating the journey of love and togetherness</p>
+        </header>
+
+        <div class="container">
+            <section class="profiles">
+                <div class="profile">
+                    <img src="IMG_8751.jpg" alt="Partner 1">
+                    <h3>Andini Dewina Putri Sinuraya</h3>
+                </div>
+                <div class="profile">
+                    <img src="IMG_6182.jpg" alt="Partner 2">
+                    <h3>Muhammad Fachrozy</h3>
+                </div>
+            </section>
+
+            <section class="message">
+                <h2 class="section-title">Anniversary Message</h2>
+                <p>Gak kerasa udah setahun kita menjalani hubungan ini. Satu tahun penuh kenangan, canda tawa, dan tentunya momen-momen kecil yang bikin semuanya jadi lebih berarti. Terima kasih sudah jadi pasangan yang luar biasa buat aku yang selalu ada di setiap langkahku, baik di saat senang maupun susah, dan bikin aku makin merasa beruntung.
+                <br><br>Mungkin kita gak selalu sempurna, tapi setiap tantangan yang kita lewati bersama justru bikin kita lebih kuat dan lebih dekat. Aku minta maaf juga atas seringnya kesalahan yang aku perbuat. Setiap pembicaraan, tawa, dan bahkan perbedaan pendapat yang kita hadapi, semuanya membentuk kita menjadi pasangan yang lebih baik. Aku selalu belajar banyak dari kamu, mulai dari cara berpikir sampai cara kamu menghargai segala hal dalam hidup ini.
+                <br><br>Gak cuma satu tahun, aku berharap kita bisa terus bertumbuh bersama, menjelajahi hal-hal baru, dan bikin lebih banyak kenangan indah. Aku gak sabar untuk masa depan kita, apapun itu, karena aku yakin kita bisa menghadapi semuanya bersama. Terima kasih sudah jadi bagian terbaik dalam hidupku. Kamu bukan hanya pasangan, tapi juga orang yang bikin aku merasa nyaman, bahagia, dan lebih baik setiap harinya.
+                <br><br>Aku sangat-sangat-sangat menghargai setiap waktu yang kita habiskan bersama. Semoga kita terus bisa menjaga kebahagiaan ini, dan melewati tahun-tahun mendatang dengan penuh cinta, tawa, dan juga kebahagiaan.
+                <br><br>Selamat ulang tahun kita yang pertama, sayangku, cantikku, duniaku! I love you more than you know! 🤍                
+                </p>
+            </section>
+
+            <section class="gallery">
+                <h2 class="section-title">Our Journey</h2>
+                <div class="polaroid">
+                    <img src="IMG_4947.jpg" alt="Photo 1">
+                    <p>Concert Date🎤🎸🎶</p>
+                </div>
+                <div class="polaroid">
+                    <img src="IMG_4696.jpg" alt="Photo 2">
+                    <p>Topokki is a must⛩️</p>
+                </div>
+                <div class="polaroid">
+                    <img src="IMG_5509.jpg" alt="Photo 3">
+                    <p>Berkelana Seharian🚗💨</p>
+                </div>
+                <div class="polaroid">
+                    <img src="IMG_6901.jpg" alt="Photo 4">
+                    <p>First Time Mba Pacar Suka Sushi🍣🥢</p>
+                </div>
+                <div class="polaroid">
+                    <img src="IMG_7605.jpg" alt="Photo 5">
+                    <p>Movie Date˙✧˖°🍿 ༘ ⋆｡˚</p>
+                </div>
+                <div class="polaroid">
+                    <img src="IMG_8783.jpg" alt="Photo 6">
+                    <p>Her POV˚☽˚｡⋆</p>
+                </div>
+                <div class="polaroid">
+                    <img src="IMG_8637.jpg" alt="Photo 7">
+                    <p>His POV˙✧˖°📷 ༘ ⋆｡˚</p>
+                </div>
+                <div class="polaroid">
+                    <img src="IMG_8232.jpg" alt="Photo 8">
+                    <p>My Universe⋆｡ﾟ🪐｡⋆｡ ﾟ☾ ﾟ｡⋆</p>
+                </div>
+                <div class="polaroid">
+                    <img src="IMG_7142.jpg" alt="Photo 9">
+                    <p>Our Birthday🎉🎂✨🍰🥳</p>
+                </div>
+                <div class="polaroid">
+                    <img src="IMG_8770.jpg" alt="Photo 10">
+                    <p>Sushi Date🍙🍣🍱🥢</p>
+                </div>
+                <div class="polaroid">
+                    <img src="IMG_8124.jpg" alt="Photo 11">
+                    <p>Love Of My Life‧₊˚☁️⋅♡🪐⋆</p>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Our Anniversary. All rights are available for us.</p>
+        </footer>
+
+        <!-- Music Control Button -->
+        <button id="music-control" class="music-control" onclick="toggleMusic()">
+            <span id="music-icon">❚❚</span>
+        </button>
+    </div>
+
+    <script>
+        function startExperience() {
+            document.getElementById('splash-screen').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+            const music = document.getElementById('background-music');
+            music.play();}
+
+        function toggleMusic() {
+            const music = document.getElementById('background-music');
+            const icon = document.getElementById('music-icon');
+                if (music.paused) {
+                    music.play();
+                    icon.textContent = '❚❚'; // Pause Icon
+                } else {
+                    music.pause();
+                    icon.textContent = '▶'; // Play Icon
+            }
+    }
+
+        
+    </script>
+</body>
+</html>
